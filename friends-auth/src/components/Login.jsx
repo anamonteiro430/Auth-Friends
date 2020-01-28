@@ -18,12 +18,23 @@ class Login extends React.Component {
 		});
 	};
 
+	//after login the server returns the token
+	//app saves the returned token to localStorage
+	//so that the axiosWithAuth can grab it for other calls with the Authorization header
 	submit = e => {
 		e.preventDefault();
 		//make POST  request to server
+		// the server will "authenticate" the user based on their credentials
+		// If they can be authenticated the server will return a token
 		axios
 			.post('http://localhost:5000/api/login', this.state.credentials)
-			.then(res => console.log(res));
+			.then(res => {
+				//set token to localStorage
+				localStorage.setItem('token', res.data.payload);
+				//directs user to this route
+				this.props.history.push('/friends');
+			})
+			.catch(err => console.log(err));
 	};
 
 	render() {
@@ -41,6 +52,7 @@ class Login extends React.Component {
 						name='password'
 						value={this.state.credentials.password}
 						onChange={this.handleChanges}
+						autoComplete=''
 					/>
 					<button>See my friends</button>
 				</form>
