@@ -52,7 +52,6 @@ class Login extends React.Component {
 						name='password'
 						value={this.state.credentials.password}
 						onChange={this.handleChanges}
-						autoComplete=''
 					/>
 					<button>See my friends</button>
 				</form>

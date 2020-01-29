@@ -1,5 +1,21 @@
 .App {
 	text-align: center;
 	background-color: #282c34;
-	height: 100vh;
+	height: 1000vh;
+}
+h1 {
+	color: white;
+}
+
+.friends {
+	background-color: white;
+	width: 20%;
+	margin: 10px;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.f {
+	display: flex;
+	flex-wrap: wrap;
 }
