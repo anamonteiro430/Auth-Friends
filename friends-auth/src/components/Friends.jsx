@@ -36,7 +36,7 @@ class Friends extends React.Component {
 		const id = friend.id;
 
 		axiosWithAuth()
-			.delete(`/friends/:${id}`)
+			.delete(`/friends/${id}`)
 			.then(res => {
 				setTimeout(() => {
 					const friends = this.state.friends.filter(f => f.id !== Number(id));
